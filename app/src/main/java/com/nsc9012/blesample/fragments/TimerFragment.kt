@@ -33,15 +33,13 @@ class TimerFragment : Fragment() {
                 val seconds = (millisUntilFinished / 1000) % 60
                 val timeLeftFormattedsec = String.format("%02d", seconds)
                 setText(timeLeftFormattedsec)
-            }
-
-            override fun onFinish() {
                 if(activity.BatteryLevel != 0) {
                     view?.findNavController()?.navigate(R.id.action_timerFragment_to_batteryFragment)
                 }
-                else {
-                    view?.findNavController()?.navigate(R.id.action_timerFragment_to_failedFragment)
-                }
+            }
+
+            override fun onFinish() {
+                view?.findNavController()?.navigate(R.id.action_timerFragment_to_failedFragment)
             }
         }.start()
     }

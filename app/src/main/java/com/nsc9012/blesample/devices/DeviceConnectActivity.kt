@@ -46,13 +46,15 @@ class DeviceConnectActivity : AppCompatActivity() {
             val action = intent.action
             if (BluetoothService.ACTION_GATT_CONNECTED == action) {
                 mConnected = true
-                val countDownTimer = object : CountDownTimer(3000, 1000) {
+                val countDownTimer = object : CountDownTimer(1000, 1000) {
                     override fun onTick(millisUntilFinished: Long) {
                         val seconds = (millisUntilFinished / 1000) % 60
                         val timeLeftFormattedsec = String.format("%02d", seconds)
                     }
                     override fun onFinish() {
-                        findNavController(R.id.nav_host_fragment2).navigate(R.id.action_connectedFragment_to_timerFragment)
+                        Log.e("ERROR", findNavController(R.id.nav_host_fragment2).currentDestination?.label.toString())
+                        if(findNavController(R.id.nav_host_fragment2).currentDestination?.label.toString().equals("fragment_connected"))
+                            findNavController(R.id.nav_host_fragment2).navigate(R.id.action_connectedFragment_to_timerFragment)
                     }
                 }.start()
             } else if (BluetoothService.ACTION_GATT_DISCONNECTED == action) {
@@ -62,10 +64,12 @@ class DeviceConnectActivity : AppCompatActivity() {
             } else if (BluetoothService.ACTION_GATT_SERVICES_DISCOVERED == action) {
                 mBluetoothLeService!!.enableTXNotification()
 
-                val countDownTimer = object : CountDownTimer(5000, 1000) {
+                val countDownTimer = object : CountDownTimer(10000, 1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        mBluetoothLeService!!.getbattery()
-                        mBluetoothLeService!!.setCharacteristicNotification()
+                        if(mBluetoothLeService != null) {
+                            mBluetoothLeService!!.getbattery()
+                            mBluetoothLeService!!.setCharacteristicNotification()
+                        }
                     }
                     override fun onFinish() {
                     }
