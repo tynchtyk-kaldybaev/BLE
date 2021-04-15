@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.ScannerFragment">
+
+    <TextView
+            android:id="@+id/ble"
+            android:layout_width="235dp"
+            android:layout_height="49dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="44dp"
+            android:text="BLE"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+
+    <TextView
+            android:id="@+id/some_id"
+            android:layout_width="235dp"
+            android:layout_height="133dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="139dp"
+            android:text="끊김"
+            android:textSize="100sp"
+            android:textColor="#1A000000"
+            android:gravity="center_horizontal|center_vertical"
+            />
+
+</FrameLayout>

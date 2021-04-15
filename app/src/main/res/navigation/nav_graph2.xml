@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_graph2"
+        app:startDestination="@id/connectedFragment">
+
+    <fragment
+            android:id="@+id/connectedFragment"
+            android:name="com.nsc9012.blesample.fragments.ConnectedFragment"
+            android:label="fragment_connected"
+            tools:layout="@layout/fragment_connected" >
+        <action
+                android:id="@+id/action_connectedFragment_to_timerFragment"
+                app:destination="@id/timerFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/timerFragment"
+            android:name="com.nsc9012.blesample.fragments.TimerFragment"
+            android:label="fragment_timer"
+            tools:layout="@layout/fragment_timer" >
+        <action
+                android:id="@+id/action_timerFragment_to_batteryFragment"
+                app:destination="@id/batteryFragment" />
+        <action
+                android:id="@+id/action_timerFragment_to_failedFragment"
+                app:destination="@id/failedFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/batteryFragment"
+            android:name="com.nsc9012.blesample.fragments.BatteryFragment"
+            android:label="fragment_battery"
+            tools:layout="@layout/fragment_battery" />
+    <fragment
+            android:id="@+id/failedFragment"
+            android:name="com.nsc9012.blesample.fragments.FailedFragment"
+            android:label="fragment_failed"
+            tools:layout="@layout/fragment_failed" />
+</navigation>
